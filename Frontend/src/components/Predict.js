@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import styles from "../CSS/Predict.module.css";
 import { Search } from "lucide-react";
+import LoaderDots from "./LoaderDots";
 
 const Predict = () => {
   const { smile } = useParams();
@@ -11,19 +12,23 @@ const Predict = () => {
     const[active,setActive]=useState("Home")
     const [expanded, setExpanded] = useState(null);
   const navigate = useNavigate();
+  const[loading,setLoading]=useState(false)
 
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true)
         const res = await axios.post(
-          "http://localhost:8088/pred",
+          "http://localhost:8001/pred",
           { smile:smiles },
           { withCredentials: true }
         );
-
+        console.log(res.data)
         setData(res.data);
       } catch (err) {
         console.log(err);
+      }finally{
+        setLoading(false)
       }
     })();
   }, [smiles]);
@@ -53,6 +58,8 @@ const barColors = {
 };
 
   return (
+    <>
+    {loading && <LoaderDots text="Predicting" />}
     <div className={styles.container}>
             <nav className={styles.navbar}>
            <div className={styles.logo}>SafeX</div>
@@ -97,38 +104,71 @@ const barColors = {
               <div className={styles.bottom}>
                 <span>Probability: {value.probability}</span>
               </div>
-              {value.prediction === 1 && (
-  <div
-    className={styles.expandBtn}
-    onClick={() =>
-      setExpanded(expanded === key ? null : key)
-    }
-  >
-    ⌄
-  </div>
-)}
-{Object.entries(value.descriptor).map(([k, v], i) => (
-  <div key={i} className={styles.barWrapper}>
-    
-    <div className={styles.barBg}>
-      <div
-        className={styles.barFill}
-        style={{
-          height: `${v * 100}%`,
-          background: barColors[k] || "#00ffcc"
-        }}
-      ></div>
+             {value.prediction === 1 && (
+  <>
+    <div
+      className={styles.expandBtn}
+      onClick={() =>
+        setExpanded(expanded === key ? null : key)
+      }
+    >
+      ⌄
     </div>
 
-    <span className={styles.barLabel}>{k}</span>
-  </div>
-))}
-            </div>
+    {expanded === key && value.descriptor && (() => {
+
+      const total = Object.values(value?.descriptor).reduce((a,b)=>a+b,0)
+
+      return (
+        <div className={styles.expandPanel}>
+          
+          <div className={styles.bars}>
+            {Object.entries(value.descriptor).map(([k, v], i) => {
+              
+             const percent = (v / total) * 100
+             const maxVal = Math.max(...Object.values(value.descriptor));
+             const heightPx = maxVal === 0 ? 0 : (v / maxVal) * 120;
+            
+             
+
+              return (
+                <div key={i} className={styles.barWrapper}>
+                  
+                  <div className={styles.barBg}>
+                    <div
+                      className={styles.barFill}
+                      style={{
+                         height: `${heightPx}px`,
+                        background: barColors[k] || "#00ffcc"
+                      }}
+                    ></div>
+                  </div>
+                  <div className={styles.tooltip}>
+        <p>{k}</p>
+        <p>Value: {v.toFixed(4)}</p>
+        <p>Contribution: {percent.toFixed(1)}%</p>
+      </div>
+                  <span className={styles.barLabel}>
+                    {k}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      );
+    })()}
+  </>
+)}
+</div>
+          
           ))}
         </div>
 
       </div>
     </div>
+    </>
   );
 };
 
