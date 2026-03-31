@@ -30,7 +30,7 @@ def pred(request: SmileFormat):
     return predict
 
 
-# app.mount("/", StaticFiles(directory="public", html=True), name="public")
+app.mount("/", StaticFiles(directory="public", html=True), name="public")
 
 
 if __name__ == "__main__":
