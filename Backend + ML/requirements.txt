@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+rdkit
+gdown
+fastapi
+uvicorn
+pydantic
+ipykernel
