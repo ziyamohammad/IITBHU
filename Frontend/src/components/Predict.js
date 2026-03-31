@@ -107,7 +107,7 @@ const barColors = {
     ⌄
   </div>
 )}
-{/* {Object.entries(value.descriptor).map(([k, v], i) => (
+{Object.entries(value.descriptor).map(([k, v], i) => (
   <div key={i} className={styles.barWrapper}>
     
     <div className={styles.barBg}>
@@ -122,7 +122,7 @@ const barColors = {
 
     <span className={styles.barLabel}>{k}</span>
   </div>
-))} */}
+))}
             </div>
           ))}
         </div>
