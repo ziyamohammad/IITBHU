@@ -154,6 +154,43 @@ class RandomForest():
 
         return input_df
 
+    def get_descriptor_importance(self, target_name):
+        """
+        Returns sorted importance of only molecular descriptors for a given target
+        """
+
+        descriptor_cols = ['MolWt','LogP','HDonors','HAcceptors','TPSA','RotBonds']
+
+        # get model for selected target
+        idx = self.targets.index(target_name)
+        rf_model = self.model.estimators_[idx]
+
+        # feature importance
+        importance_df = pd.DataFrame({
+            'feature': self.X.columns,
+            'importance': rf_model.feature_importances_
+        })
+
+        # filter only descriptors
+        desc_df = importance_df[
+            importance_df['feature'].isin(descriptor_cols)
+        ]
+
+        # sort
+        desc_df = desc_df.sort_values(by='importance', ascending=False)
+
+        return desc_df
+
+    def explain_target(self, target_name):
+
+        desc_df = self.get_descriptor_importance(target_name)
+
+        # print(f"\n Interpretation for {target_name}:")
+
+        feature_dict = dict(zip(desc_df['feature'], desc_df['importance']))
+        # print(feature_dict)
+        return feature_dict
+
     def predict_smiles(self, smiles):
 
         input_df = self._prepare_input(smiles, self.X.columns)
@@ -168,5 +205,9 @@ class RandomForest():
                 "prediction": int(preds[0][i]),
                 "probability": float(probs[i][0][1])
             }
+        
+        for k, v in result.items():
+            if v.get("prediction"):
+                result[k]["descriptor"] = self.explain_target(k)
 
         return result
