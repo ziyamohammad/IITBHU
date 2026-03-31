@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "../CSS/Home.module.css";
-import {  ArrowRight, ChartLine, Cpu, Database, Search } from "lucide-react";
+import {  ChartLine, Cpu, Database, Search } from "lucide-react";
 import { useNavigate } from "react-router";
-import axios from "axios";
+
 
 
 const Hero = () => {
