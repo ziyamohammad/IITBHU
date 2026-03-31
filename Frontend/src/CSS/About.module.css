@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+.container {
+  padding: 20px;
+  color: white;
+   font-family: "Instrument Sans", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  color: white;
+   position: absolute;
+  left: 45%;
+  
+  border-radius: 5px; 
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+
+  width:fit-content;
+  justify-content: space-between;
+}
+
+
+.navWrapper span {
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+
+.active {
+  background: rgba(224, 230, 246, 0.68);
+  color: rgba(14, 48, 77, 1);
+  opacity: 1;
+}
+
+
+.navWrapper span:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* COMMON GLASS BOX */
+.topBox,
+.bottomBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+  padding: 25px;
+
+  margin-bottom: 25px;
+}
+
+/* TEXT */
+.topContent,
+.bottomContent {
+  flex: 1;
+  font-size: 18px;
+   font-family: "Instrument Sans", sans-serif;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* DOT */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #6bb6ff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* RIGHT IMAGE */
+.imageBox {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageBox img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* LEFT ICON */
+.leftIcon {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(180deg, #2f4f8f, #1a2f57);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.leftIcon img {
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .topBox,
+  .bottomBox {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .imageBox,
+  .leftIcon {
+    width: 40%;
+  }
+}
+@media (max-width: 600px){
+   .imageBox,
+  .leftIcon {
+    width: 80%;
+  }
+}
+@media (max-width: 450px){
+  .navbar{
+    padding:24px 0px;
+  }
+}

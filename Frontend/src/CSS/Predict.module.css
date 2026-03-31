@@ -10,7 +10,7 @@
 
 .navbar {
   display: flex;
-  gap:400px;
+  justify-content: space-between;
   align-items: center;
   padding: 24px 60px;
   position: relative;
@@ -52,7 +52,7 @@
 .inputfield{
   border: none;
   background-color: transparent;
-  
+  width:300px;
   padding:10px 0px;
   outline: none;
   
@@ -66,6 +66,8 @@
 .navWrapper {
   display: flex;
   align-items: center;
+   position: absolute;
+  left: 45%;
   gap: 10px;
   font-family: "Instrument Sans", sans-serif;
   color: white;
@@ -75,7 +77,7 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
 
-  min-width: 350px;
+  width: fit-content;
   justify-content: space-between;
 }
 
@@ -89,6 +91,12 @@
   transition: all 0.3s ease;
 }
 
+.active {
+  background: rgba(14, 48, 77, 0.7);
+  backdrop-filter: blur(40px);
+  color: rgba(224, 230, 246, 0.7);
+  opacity: 1;
+}
 
 .active1 {
   background: rgba(224, 230, 246, 0.68);
@@ -132,7 +140,8 @@
 
 /* ACTIVE / INACTIVE */
 .active {
-  background: linear-gradient(180deg, #0f3d5e, #1b5e9a);
+  background:rgba(14, 48, 77, 0.7);
+  backdrop-filter: blur(40px);
 }
 
 .inactive {
@@ -203,4 +212,83 @@
 .barLabel {
   font-size: 10px;
   margin-top: 5px;
+}
+
+/* ARROW BUTTON */
+.expandBtn {
+  margin-top: 10px;
+  align-self: center;
+
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+/* EXPAND PANEL */
+.expandPanel {
+  position: relative; 
+  margin-top: 20px;
+
+  background: linear-gradient(180deg, #0f2f4f, #123b6b);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* BARS */
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.barWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barBg {
+  width: 12px;
+  height: 120px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.barFill {
+  width: 100%;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to top,
+    #00c6ff,
+    #00ff99,
+    #4caf50,
+    #ffcc00,
+    #ff3b3b
+  );
+}
+
+.barLabel {
+  font-size: 10px;
+  margin-top: 6px;
+}
+.card {
+  position: relative;
+  height: auto; 
+  overflow: hidden; 
+}
+@media (max-width: 450px){
+  .inputfield{
+    width:100%;
+  }
+  .navbar{
+    padding:24px 0px;
+  }
+  .cards{
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
 }

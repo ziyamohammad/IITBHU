@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 const Hero = () => {
   const navigate = useNavigate()
   const[smiles,setSmile]=useState("")
+  const[active,setActive]=useState("Home")
 
   
   return (
@@ -18,9 +19,13 @@ const Hero = () => {
   <div className={styles.logo}>SafeX</div>
 
   <div className={styles.navWrapper}>
-    <span className={styles.active}>Home</span>
-    <span>About</span>
-    <span>Team</span>
+    <span className={active === "Home" ?styles.active:""} onClick={()=>{
+       navigate(`/`)
+       setActive("Home")}}>Home</span>
+    <span className={active === "About" ?styles.active:""} onClick={()=>{
+      navigate(`/About`)
+      setActive("About")}}>About</span>
+   
   </div>
 </nav>
       {/* Hero Content */}

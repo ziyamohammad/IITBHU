@@ -5,7 +5,8 @@
 }
 .App{
   width:100vw;
-  height:100vh;
+  min-height:100vh;
+  height: auto;
   position: relative;
   background-image:url(../public/bubbles.png) ;
   background-size: 100vw 100vh;

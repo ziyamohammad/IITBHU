@@ -8,6 +8,8 @@ const Predict = () => {
   const { smile } = useParams();
   const[smiles,setSmile]=useState(smile)
   const [data, setData] = useState({});
+    const[active,setActive]=useState("Home")
+    const [expanded, setExpanded] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,17 +43,29 @@ const Predict = () => {
   "SR-p53": "Stress Response → Tumor Protein p53"
 };
 
+const barColors = {
+  MolWt: "#3b82f6",      // blue
+  LogP: "#14b8a6",       // teal
+  TPSA: "#22c55e",       // green
+  RotBonds: "#84cc16",   // lime
+  HAcceptors: "#facc15", // yellow
+  HDonors: "#ef4444"     // red
+};
+
   return (
     <div className={styles.container}>
-          <nav className={styles.navbar}>
-          <div className={styles.logo}>SafeX</div>
-        
-          <div className={styles.navWrapper}>
-            <span className={styles.active1}>Home</span>
-            <span>About</span>
-            <span>Team</span>
-          </div>
-        </nav>
+            <nav className={styles.navbar}>
+           <div className={styles.logo}>SafeX</div>
+         
+           <div className={styles.navWrapper}>
+             <span className={active === "Home" ?styles.active1:""} onClick={()=>{
+                navigate(`/`)
+                setActive("Home")}}>Home</span>
+             <span className={active === "About" ?styles.active1:""} onClick={()=>{
+               navigate(`/About`)
+               setActive("About")}}>About</span>
+           </div>
+         </nav>
         <button className={styles.ctaBtn} >
          <input type="text" value={smiles} className={styles.inputfield} onChange={(e)=>{setSmile(e.target.value)}} placeholder="Try Prediction"/><br/><span><Search color="white" size={22} onClick={()=>{navigate(`/predict/${smiles}`)}}/></span>
         </button>
@@ -83,6 +97,32 @@ const Predict = () => {
               <div className={styles.bottom}>
                 <span>Probability: {value.probability}</span>
               </div>
+              {value.prediction === 1 && (
+  <div
+    className={styles.expandBtn}
+    onClick={() =>
+      setExpanded(expanded === key ? null : key)
+    }
+  >
+    ⌄
+  </div>
+)}
+{/* {Object.entries(value.descriptor).map(([k, v], i) => (
+  <div key={i} className={styles.barWrapper}>
+    
+    <div className={styles.barBg}>
+      <div
+        className={styles.barFill}
+        style={{
+          height: `${v * 100}%`,
+          background: barColors[k] || "#00ffcc"
+        }}
+      ></div>
+    </div>
+
+    <span className={styles.barLabel}>{k}</span>
+  </div>
+))} */}
             </div>
           ))}
         </div>

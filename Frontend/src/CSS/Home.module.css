@@ -27,8 +27,9 @@
 /* Navbar */
  .navbar {
   display: flex;
-  gap:400px;
+  
   align-items: center;
+  justify-content: space-between;
   padding: 24px 60px;
   position: relative;
   z-index: 2;
@@ -45,6 +46,8 @@
 .navWrapper {
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 45%;
   gap: 10px;
   font-family: "Instrument Sans", sans-serif;
   color: white;
@@ -54,7 +57,7 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
 
-  min-width: 350px;
+  width:fit-content;
   justify-content: space-between;
 }
 
@@ -209,6 +212,11 @@
 
 .card:hover {
   transform: translateY(-5px);
+}
+@media (max-width: 450px){
+  .navbar{
+    padding:24px 0px;
+  }
 }
 
 
