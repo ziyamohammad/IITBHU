@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+.container {
+  padding: 20px;
+  color: white;
+  width:100%;
+   font-family: "Instrument Sans", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  gap:400px;
+  align-items: center;
+  padding: 24px 60px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.ctaBtn {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: none;
+  display:inline-flex;
+  align-items: center;
+  background: rgba(224, 230, 246, 0.68);
+  color: rgba(14, 48, 77, 1);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  padding-left:20px;
+  gap:10px;
+   font-family: "Instrument Sans", sans-serif;
+}
+.ctaBtn span{
+  background-color: rgba(14, 48, 77, 1);
+  border-radius: 12px;
+  padding:5px 10px;
+  
+}
+
+.ctaBtn:hover {
+  transform: scale(1.05);
+}
+.inputfield{
+  border: none;
+  background-color: transparent;
+  
+  padding:10px 0px;
+  outline: none;
+  
+}
+.inputfield::placeholder{
+  color:black;
+  font-family: "Instrument Sans", sans-serif;
+}
+
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  color: white;
+  
+  border-radius: 5px; 
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+
+  min-width: 350px;
+  justify-content: space-between;
+}
+
+
+.navWrapper span {
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+
+.active1 {
+  background: rgba(224, 230, 246, 0.68);
+  color: rgba(14, 48, 77, 1);
+  opacity: 1;
+}
+
+
+.navWrapper span:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* MAIN GRID */
+.grid {
+  display: grid;
+  
+  gap: 20px;
+}
+
+/* LEFT GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 0.3s;
+}
+
+/* ACTIVE / INACTIVE */
+.active {
+  background: linear-gradient(180deg, #0f3d5e, #1b5e9a);
+}
+
+.inactive {
+  opacity: 0.6;
+}
+
+/* TOP */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.status {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* BOTTOM */
+.bottom {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* RIGHT PANEL */
+.chart {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* BARS */
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.barWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barBg {
+  width: 12px;
+  height: 120px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.barFill {
+  width: 100%;
+  background: linear-gradient(to top, #00c6ff, #00ff99);
+  border-radius: 10px;
+}
+
+.barLabel {
+  font-size: 10px;
+  margin-top: 5px;
+}

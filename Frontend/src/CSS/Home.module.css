@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+.container {
+  min-height:100%;
+  height: auto;
+  overflow: auto;
+  width: 100%;
+  padding-bottom: 10px;
+  
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  color: white;
+   font-family: "Instrument Sans", sans-serif;
+  overflow: hidden;
+  z-index:6;
+}
+.navbar,
+.heroContent,
+.cards {
+  position: relative;
+  z-index: 2;
+   font-family: "Instrument Sans", sans-serif;
+}
+
+
+/* Navbar */
+ .navbar {
+  display: flex;
+  gap:400px;
+  align-items: center;
+  padding: 24px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  color: white;
+  
+  border-radius: 5px; 
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+
+  min-width: 350px;
+  justify-content: space-between;
+}
+
+
+.navWrapper span {
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+
+.active {
+  background: rgba(224, 230, 246, 0.68);
+  color: rgba(14, 48, 77, 1);
+  opacity: 1;
+}
+
+
+.navWrapper span:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+/* Hero Section */
+.heroContent {
+  text-align: center;
+  margin-top: 50px;
+  z-index:6;
+}
+.inputfield{
+  border: none;
+  background-color: transparent;
+  
+  padding:10px 0px;
+  outline: none;
+  
+}
+.inputfield::placeholder{
+  color:black;
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.heroContent h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  z-index:6;
+}
+
+.heroContent p {
+  font-size: 24px;
+  opacity: 0.85;
+  font-weight: 400;
+  max-width: 750px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+/* Button */
+.ctaBtn {
+
+  border-radius: 12px;
+  border: none;
+  display:inline-flex;
+  align-items: center;
+  background: rgba(224, 230, 246, 0.68);
+  color: rgba(14, 48, 77, 1);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  padding-left:20px;
+  gap:10px;
+   font-family: "Instrument Sans", sans-serif;
+}
+.ctaBtn span{
+  background-color: rgba(14, 48, 77, 1);
+  border-radius: 12px;
+  padding:5px 10px;
+  
+}
+
+.ctaBtn:hover {
+  transform: scale(1.05);
+}
+.head span{
+  padding:5px;
+  background-color: rgba(14, 48, 77, 1);
+  border-radius: 8px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.card {
+  display:flex;
+  height:220px;
+  overflow: hidden;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.3s;
+}
+.head{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:10px;
+  color:rgba(165, 211, 238, 1);
+   font-family: "Instrument Sans", sans-serif;
+   font-weight: 400;
+   letter-spacing: 1px;
+   font-size: 14px;
+   margin-bottom: 20px;
+
+}
+.content{
+  display:flex;
+  
+  height:auto;
+  overflow: hidden;
+  justify-content: center;
+  gap:10px;
+}
+.contentimg{
+  width:200px;
+}
+.contenttext{
+  display:flex;
+  height:auto;
+  overflow: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap:10px;
+  color:rgba(186, 215, 239, 1);
+   font-family: "Instrument Sans", sans-serif;
+   font-weight: 400;
+   font-size: 14px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
+
