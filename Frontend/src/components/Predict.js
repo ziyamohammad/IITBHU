@@ -19,7 +19,7 @@ const Predict = () => {
       try {
         setLoading(true)
         const res = await axios.post(
-          "http://localhost:8001/pred",
+          "http://localhost:10000/pred",
           { smile:smiles },
           { withCredentials: true }
         );
